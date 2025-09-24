@@ -1,0 +1,5 @@
+{
+	"name": "@thegreataxios/local-examples-config",
+	"version": "1.0.0",
+	"module": "src/index.ts",
+}

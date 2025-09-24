@@ -1,0 +1,17 @@
+{
+  "name": "x402-examples",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@thegreataxios/local-examples-config": "workspace:*"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "eip3009-forwarder-ethersv6",
+    "local-examples-config"
+  ]
+}

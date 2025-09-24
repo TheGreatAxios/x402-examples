@@ -1,0 +1,19 @@
+{
+  "name": "@thegreataxios/eip3009-forwarder-ethersv6",
+  "version": "1.0.0",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "testnet:europa:usdc": "bun run --env-file=../.env ./src/europa-testnet/usdc.ts "
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "ethers": "^6.15.0"
+  }
+}
