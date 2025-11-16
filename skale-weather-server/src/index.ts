@@ -1,9 +1,15 @@
 import { Hono } from "hono";
 import { paymentMiddleware, Network } from "x402-hono";
-// import { facilitator } from "@coinbase/x402"; // For mainnet
+import { cors } from "hono/cors";
+import { logger } from "hono/logger";
+import { prettyJSON } from "hono/pretty-json";
 
 const app = new Hono();
-
+app.use(cors({
+  origin: "*"
+}));
+app.use(logger());
+app.use(prettyJSON());
 // Configure the payment middleware
 app.use(paymentMiddleware(
   "0x71dc0bc68e7f0e2c5aace661b0f3fb995a80aaf4", // your receiving wallet address
@@ -11,21 +17,13 @@ app.use(paymentMiddleware(
     "/weather": {
       price: "$0.001",
       network: "skale-base-sepolia",
-      asset: {
-        address: "0x2e08028E3C4c2356572E096d8EF835cD5C6030bD",
-        decimals: 6,
-        eip712: {
-          name: "Bridged USDC (SKALE Bridge)",
-          version: "2"
-        }
-      },
       config: {
         description: "Get the weather for a given location",
       }
     }
   },
   {
-    url: "https://facilitator.chaoscha.in",
+    url: "http://localhost:8787",
   }
 ));
 
